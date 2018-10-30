@@ -105,6 +105,12 @@ IF EXIST "%DEPLOYMENT_TARGET%\package.json" (
   popd
 )
 
+:: 4. Create Hubot file with a coffee extension
+copy /Y “%DEPLOYMENT_TARGET%\node_modules\hubot\bin\hubot” “%DEPLOYMENT_TARGET%\node_modules\hubot\bin\hubot.coffee”
+
+ :: 5. Create App_Data from brain data
+ IF NOT EXIST "%DEPLOYMENT_TARGET%\App_Data" MD "%DEPLOYMENT_TARGET%\App_Data"
+
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 goto end
 
